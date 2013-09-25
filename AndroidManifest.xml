@@ -1728,7 +1728,7 @@
             </intent-filter>
         </activity>
 
-	<activity android:name=".vanir.ChangeLog" android:label="@string/changelog_title">
+	<activity android:name=".CodeKill.ChangeLog" android:label="@string/changelog_title">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
             </intent-filter>
