@@ -1975,7 +1975,7 @@
     <!-- About phone screen,  setting option name-->
     <string name="selinux_status">SELinux status</string>
 
-    <string name="mod_version">Vanir version</string>
+    <string name="mod_version">CodeKill version</string>
     <string name="mod_version_default">Unknown</string>
 
     <!-- About phone screen, show when a value of some status item is unavailable. -->
@@ -5580,7 +5580,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <!-- Vanir menus -->
     <string name="vanir_header">Userspace options</string>
     <string name="vanir_title">Voodoo</string>
-    <string name="vanir_settings_title">Vanir Customizations</string>
+    <string name="vanir_settings_title">CodeKill Customizations</string>
     <string name="vanir_ui_short">UI Stuff</string>
     <string name="vanir_buttons_short">Hardware key controls</string>
     <string name="vanir_sound_short">Sound-ish Stuff</string>
@@ -5688,7 +5688,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="tablet_statusbar_summary">Pull down 2 separate statusbars like tablets have</string>
 
     <!-- vanir config toggle -->
-    <string name="vanir_config_title">Vanir tweaks</string>
+    <string name="vanir_config_title">CodeKill tweaks</string>
     <string name="vanir_config_enabled_summary">Enable application of available kernel tweaks during boot\n\nTo configure settings, run \"vanir config\" as root in a terminal emulator or adb shell</string>
     <string name="vanir_config_disabled_summary">Disable application of available kernel tweaks during boot</string>
     <string name="vanir_config_just_disabled_summary">Disable application of available kernel tweaks during boot\n\n<b>Reboot required for default values to be restored</b></string> 
@@ -5714,8 +5714,6 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="location_gps_source_notification_title">Alert</string>
     <string name="location_gps_source_notification">The GPS source has been switched! GPS will be disabled. Please re-enable before use!</string>
 
-    <!-- Vanir Updater -->
-    <string name="vanirupdate_settings_title">Vanir updates</string>
-    <string name="vanirupdate_settings_summary">Check for, view or install available updates</string>
+    
 
 </resources>
