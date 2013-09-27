@@ -36,7 +36,7 @@ import com.android.internal.app.AlertController;
 
 public class ChangeLog extends AlertActivity {
 
-    private static final String CHANGELOG_PATH = "/system/etc/CHANGELOG-CodeKill.txt";
+    private static final String CHANGELOG_PATH = "/system/etc/CHANGELOG-VANIR.txt";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
