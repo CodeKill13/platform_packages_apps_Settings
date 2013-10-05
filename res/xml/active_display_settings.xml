@@ -32,6 +32,13 @@
         android:dependency="ad_enable"/>
 
     <CheckBoxPreference
+			android:key="ad_hide_low_priority"
+			android:persistent="false"
+			android:title="@string/ad_hide_low_priority_title"
+			android:summary="@string/ad_hide_low_priority_summary"
+			android:dependency="ad_enable"/>
+
+    <CheckBoxPreference
         android:key="ad_all_notifications"
         android:persistent="false"
         android:title="@string/ad_all_notifications_title"
@@ -68,7 +75,7 @@
         android:summary="@string/ad_show_ampm_summary"
         android:dependency="ad_enable"/>
 
-    <com.android.settings.vanir.SeekBarPreference
+    <com.android.settings.widget.SeekBarPreference
         android:key="ad_brightness"
         android:persistent="false"
         android:title="@string/ad_brightness_title"

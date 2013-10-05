@@ -28,6 +28,7 @@ import android.preference.SwitchPreference;
 import android.provider.Settings;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.widget.SeekBarPreference;
 
 import static android.hardware.Sensor.TYPE_LIGHT; 
 import static android.hardware.Sensor.TYPE_PROXIMITY;
@@ -39,6 +40,7 @@ public class ActiveDisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_ENABLED = "ad_enable";
     private static final String KEY_SHOW_TEXT = "ad_text";
     private static final String KEY_ALL_NOTIFICATIONS = "ad_all_notifications";
+    private static final String KEY_HIDE_LOW_PRIORITY = "ad_hide_low_priority";
     private static final String KEY_POCKET_MODE = "ad_pocket_mode";
     private static final String KEY_REDISPLAY = "ad_redisplay";
     private static final String KEY_SHOW_DATE = "ad_show_date";
@@ -50,6 +52,7 @@ public class ActiveDisplaySettings extends SettingsPreferenceFragment implements
     private CheckBoxPreference mShowDatePref;
     private CheckBoxPreference mShowAmPmPref;
     private CheckBoxPreference mAllNotificationsPref;
+    private CheckBoxPreference mHideLowPriorityPref;
     private CheckBoxPreference mPocketModePref;
     private ListPreference mRedisplayPref;
     private SeekBarPreference mBrightnessLevel;
@@ -88,6 +91,10 @@ public class ActiveDisplaySettings extends SettingsPreferenceFragment implements
         mRedisplayPref.setValue(String.valueOf(timeout));
         updateRedisplaySummary(timeout);
 
+        mHideLowPriorityPref = (CheckBoxPreference) findPreference(KEY_HIDE_LOW_PRIORITY);
+			mHideLowPriorityPref.setChecked((Settings.System.getInt(getContentResolver(),
+			Settings.System.ACTIVE_DISPLAY_HIDE_LOW_PRIORITY_NOTIFICATIONS, 0) == 1));
+
         mShowDatePref = (CheckBoxPreference) findPreference(KEY_SHOW_DATE);
         mShowDatePref.setChecked((Settings.System.getInt(getContentResolver(),
             Settings.System.ACTIVE_DISPLAY_SHOW_DATE, 0) == 1));
@@ -96,9 +103,10 @@ public class ActiveDisplaySettings extends SettingsPreferenceFragment implements
         mShowAmPmPref.setChecked((Settings.System.getInt(getContentResolver(),
         Settings.System.ACTIVE_DISPLAY_SHOW_AMPM, 0) == 1));
 
+        int level = Settings.System.getInt(getContentResolver(),
+                Settings.System.ACTIVE_DISPLAY_BRIGHTNESS, 100);
         mBrightnessLevel = (SeekBarPreference) findPreference(KEY_BRIGHTNESS);
-        mBrightnessLevel.setValue(Settings.System.getInt(getContentResolver(),
-                Settings.System.ACTIVE_DISPLAY_BRIGHTNESS, 100));
+        mBrightnessLevel.setInitValue((int) (level));
         mBrightnessLevel.setOnPreferenceChangeListener(this);
     }
 
@@ -113,7 +121,7 @@ public class ActiveDisplaySettings extends SettingsPreferenceFragment implements
                     ((Boolean) newValue).booleanValue() ? 1 : 0);
             return true;
         } else if (preference == mBrightnessLevel) {
-            int brightness = ((Integer)newValue).intValue();
+            int brightness = Integer.parseInt((String) newValue);
             Settings.System.putInt(getContentResolver(),
                     Settings.System.ACTIVE_DISPLAY_BRIGHTNESS, brightness);
             return true;
@@ -135,6 +143,11 @@ public class ActiveDisplaySettings extends SettingsPreferenceFragment implements
             Settings.System.putInt(getContentResolver(),
                     Settings.System.ACTIVE_DISPLAY_ALL_NOTIFICATIONS,
                     value ? 1 : 0);
+        } else if (preference == mHideLowPriorityPref) {
+			value = mHideLowPriorityPref.isChecked();
+			Settings.System.putInt(getContentResolver(),
+			Settings.System.ACTIVE_DISPLAY_HIDE_LOW_PRIORITY_NOTIFICATIONS,
+			value ? 1 : 0);
         } else if (preference == mPocketModePref) {
             value = mPocketModePref.isChecked();
             Settings.System.putInt(getContentResolver(),
