@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.android.settings"
-    coreApp="true"
-    android:sharedUserId="android.uid.system">
+        package="com.android.settings"
+        coreApp="true"
+        android:sharedUserId="android.uid.system">
 
     <original-package android:name="com.android.settings" />
 
@@ -64,18 +64,11 @@
     <uses-permission android:name="android.permission.CONFIGURE_WIFI_DISPLAY" />
     <uses-permission android:name="android.permission.SET_TIME" />
     <uses-permission android:name="android.permission.ACCESS_NOTIFICATIONS" />
-
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <uses-permission android:name="android.permission.BIND_APPWIDGET" />
-    <uses-permission android:name="android.permission.ACCESS_SUPERUSER" />
-    <uses-permission android:name="android.permission.CHANGE_PRIVACY_GUARD_STATE" />
-    <uses-permission android:name="android.permission.READ_SMS" />
-    <uses-permission android:name="android.permission.SEND_SMS" />
 
     <permission
         android:name="android.permission.REQUEST_SUPERUSER"
         android:protectionLevel="signature" />
-
     <permission
         android:name="android.permission.REPORT_SUPERUSER"
         android:protectionLevel="signature" />
@@ -103,9 +96,7 @@
             android:hardwareAccelerated="true"
             android:requiredForAllUsers="true"
             android:supportsRtl="true">
-
-        <uses-library android:name="org.cyanogenmod.hardware" required="false" />
-
+  
         <!-- Only system/su can open this activity -->
         <!-- This activity will then call the MultitaskSuRequestActivity to create a new task stack -->
         <activity
@@ -147,20 +138,6 @@
             android:name="com.koushikdutta.superuser.SuReceiver"
             android:permission="android.permission.REPORT_SUPERUSER" />
 
-        <receiver android:name="com.koushikdutta.superuser.PackageChangeReceiver" >
-            <intent-filter>
-                <action android:name="android.intent.action.PACKAGE_ADDED" />
-                <data android:scheme="package" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-                <data android:scheme="package" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.PACKAGE_REMOVED" />
-                <data android:scheme="package" />
-            </intent-filter>
-        </receiver>
 
         <!-- Settings -->
 
@@ -189,22 +166,6 @@
             </intent-filter>
         </activity>
 
-        <!-- QuietHours AutoSMS -->
-
-        <service android:name=".vanir.autosms.AutoSmsService" />
-
-        <receiver
-            android:name=".vanir.autosms.AlarmReceiver">
-
-            <intent-filter>
-                <action android:name="android.intent.action.TIMEZONE_CHANGED"></action>
-                <action android:name="android.intent.action.TIME_CHANGED"></action>
-                <action android:name="android.intent.action.DATE_CHANGED"></action>
-                <action android:name="com.android.settings.vanir.autosms.START_SMS_SERVICE" />
-                <action android:name="com.android.settings.vanir.autosms.STOP_SMS_SERVICE"  />
-            </intent-filter>
-        </receiver>
-
         <!-- Wireless Controls -->
 
         <activity android:name="Settings$WirelessSettingsActivity"
@@ -224,6 +185,7 @@
             <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
                 android:resource="@id/wireless_settings" />
         </activity>
+
 
         <!-- Top-level settings -->
 
@@ -363,18 +325,16 @@
             </intent-filter>
         </activity-alias>
 
-        <activity android:name="Settings$ApnSettingsActivity" android:label="@string/apn_settings"
-                  android:configChanges="orientation|keyboardHidden|screenSize"
-                  android:launchMode="singleTask" android:clearTaskOnLaunch="true"
-                  android:parentActivityName="Settings$WirelessSettingsActivity">
+        <activity android:name="ApnSettings"
+                android:label="@string/apn_settings"
+                android:configChanges="orientation|keyboardHidden|screenSize"
+                android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.settings.APN_SETTINGS" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.VOICE_LAUNCH" />
             </intent-filter>
-            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                android:value="com.android.settings.ApnSettings" />
         </activity>
 
         <activity android:name="Settings$BluetoothSettingsActivity"
@@ -473,6 +433,7 @@
             <meta-data android:name="com.android.settings.PARENT_FRAGMENT_CLASS"
                 android:value="com.android.settings.Settings$WirelessSettingsActivity" />
         </activity>
+
 
         <activity android:name="Settings$VpnSettingsActivity"
                 android:label="@string/vpn_settings_title"
@@ -806,7 +767,7 @@
             <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
                 android:resource="@id/application_settings" />
         </activity-alias>
-
+        
         <!-- Provide direct entry into manage apps showing storage usage for apps.
              This is for compatibility with old shortcuts. -->
         <activity-alias android:name=".applications.StorageUse"
@@ -1093,6 +1054,7 @@
 
         <!-- Second and third-level settings -->
 
+
         <!-- Lock screen settings -->
         <activity android:name="ConfirmLockPattern"/>
 
@@ -1145,9 +1107,8 @@
         <activity android:name=".deviceinfo.MiscFilesHandler"
                 android:theme="@android:style/Theme.Holo.DialogWhenLarge"/>
 
-      <activity android:name="Settings$ApnEditorActivity"
-                android:label="@string/apn_edit"
-                android:clearTaskOnLaunch="true">
+        <activity android:name="ApnEditor"
+                android:label="@string/apn_edit">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <action android:name="android.intent.action.EDIT" />
@@ -1160,8 +1121,6 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <data android:mimeType="vnd.android.cursor.dir/telephony-carrier" />
             </intent-filter>
-            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                android:value="com.android.settings.ApnEditor" />
         </activity>
 
         <activity android:name="MediaFormat" android:label="@string/media_format_title">
@@ -1380,6 +1339,7 @@
                 android:value="com.android.settings.wfd.WifiDisplaySettings" />
         </activity>
 
+
         <!-- Development settings -->
 
         <activity android:name="DebugIntentSender" android:label="@string/debug_intent_sender_label">
@@ -1389,7 +1349,7 @@
             </intent-filter>
         </activity>
 
-        <!-- DeviceInfo adds the user's requested build to stats upload. -->
+        <!-- DeviceInfo adds the user's requested build to stats upload.  -->
         <receiver android:name=".DeviceInfo$StatsReportReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.STATISTICS_REPORT" />
@@ -1589,35 +1549,14 @@
         <activity android:name=".CryptKeeper$FadeToBlack"
             android:immersive="true"
             android:launchMode="singleTop"
-            android:theme="@style/CryptKeeperBlankTheme" />
+            android:theme="@style/CryptKeeperBlankTheme"
+        />
 
         <activity android:name=".CryptKeeperConfirm$Blank"
             android:immersive="true"
             android:launchMode="singleTop"
-            android:theme="@style/CryptKeeperBlankTheme" />
-
-        <!-- LCD changer -->
-        <activity android:name=".vanir.fragments.UserInterface" />
-
-        <activity android:name=".vanir.WifiSettings" />
-
-        <activity
-            android:name=".vanir.fragments.DensityChanger"
-            android:label="@string/lcd_density_wizard" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
-        </activity>
-
-        <activity android:name=".vanir.PartitionInfo"
-            android:label="@string/partition_info_title">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.SHORTCUT" />
-            </intent-filter>
-        </activity>
-
-        <activity android:name=".vanir.ExcludedAppsActivity" />
+            android:theme="@style/CryptKeeperBlankTheme"
+        />
 
         <!-- Pseudo-activity used to provide an intent-filter entry point to encryption settings -->
         <activity android:name="Settings$CryptKeeperSettingsActivity"
@@ -1625,7 +1564,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.app.action.START_ENCRYPTION" />
-                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.DEFAULT" /> />
             </intent-filter>
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
                 android:value="com.android.settings.CryptKeeperSettings" />
@@ -1664,28 +1603,6 @@
             <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
                 android:resource="@id/display_settings" />
         </activity>
-        <activity android:name=".vanir.LockscreenTargets" />
-        <activity android:name=".vanir.LockscreenInterface" />
-
-    <!-- "Blacklist settings" UI, used only on voice-capable phone devices. -->
-        <activity android:name="Settings$BlacklistSettingsActivity"
-                android:theme="@android:style/Theme.Holo.DialogWhenLarge"
-                android:label="@string/blacklist_title"
-                android:taskAffinity=""
-                android:excludeFromRecents="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                android:value="com.android.settings.blacklist.BlacklistSettings" />
-            <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
-                android:resource="@id/security_settings" />
-        </activity>
-
-        <activity android:name=".notificationlight.NotificationLightSettings" />
-
-        <activity android:name=".notificationlight.BatteryLightSettings" />
 
         <activity android:name="Settings$UserSettingsActivity"
                 android:uiOptions="splitActionBarWhenNarrow"
@@ -1729,11 +1646,35 @@
             </intent-filter>
         </activity>
 
-	<activity android:name=".vanir.ChangeLog" android:label="@string/changelog_title">
+        <!-- CyanogenMod activities Start -->
+        <activity android:name=".profiles.ProfilesSettings" />
+
+        <activity android:name=".profiles.ProfileConfig" />
+
+        <activity android:name=".profiles.AppGroupList" />
+
+        <activity android:name=".profiles.AppGroupConfig" />
+
+        <activity android:name=".profiles.ProfileGroupConfig" />
+
+        <activity android:name=".profiles.WifiTriggers" />
+
+        <activity android:name=".profiles.NFCProfileWriter" />
+
+        <activity android:name=".profiles.NFCProfileSelect" />
+
+        <activity android:name=".profiles.NFCProfile"
+                android:theme="@android:style/Theme.NoDisplay">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.nfc.action.NDEF_DISCOVERED"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="cm/profile" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".cyanogenmod.SystemSettings" />
+
+        <!-- CyanogenMod activities End -->
 
         <receiver android:name=".widget.SettingsAppWidgetProvider"
                 android:label="@string/gadget_title"
@@ -1758,74 +1699,17 @@
             </intent-filter>
         </receiver>
 
-        <!-- Watch for ContactsContract.Profile changes and update the user's photo. -->
+        <!-- Watch for ContactsContract.Profile changes and update the user's photo.  -->
         <receiver android:name=".users.ProfileUpdateReceiver">
             <intent-filter>
                 <action android:name="android.provider.Contacts.PROFILE_CHANGED" />
             </intent-filter>
         </receiver>
 
-        <activity android:name=".vanir.NavRingTargets" />
-        <activity android:name=".vanir.NavBarItemPreference" />
-        <activity android:name=".widget.fragments.WidgetConfigurationFragment" />
-        <activity android:name=".widget.SeekBarPreference" />
-        <activity android:name=".widget.TouchInterceptor" />
-
-        <activity android:name=".vanir.fragments.StatusbarMods"
-            android:label="Statusbar Mods">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.SHORTCUT" />
-            </intent-filter>
-        </activity>
-
-        <activity android:name=".vanir.fragments.Navbar"
-            android:label="Navigation Bar" >
-            <intent-filter>
-               <action android:name="android.intent.action.MAIN" />
-               <category android:name="android.intent.category.SHORTCUT" />
-            </intent-filter>
-        </activity>
-
-        <activity
-            android:name=".vanir.fragments.TransparencyDialog"
-            android:theme="@android:style/Theme.Dialog"
-            android:label="@string/title_ui" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.SHORTCUT" />
-            </intent-filter>
-        </activity>
-
-        <activity
-            android:name=".fragments.StatusBarToggles"
-            android:label="@string/title_statusbar_toggles" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="com.android.settings.SHORTCUT" />
-            </intent-filter>
-        </activity>
-<!--
-        <activity
-            android:name=".fragments.Vibrations"
-            android:label="@string/vibrations" >
-
-             <intent-filter>
-                 <action android:name="android.intent.action.MAIN" />
-
-                 <category android:name="com.android.settings.SHORTCUT" />
-             </intent-filter>
-         </activity>
-
-         <provider
-            android:name=".vanir.VibrationsProvider"
-            android:authorities="com.android.settings.vanir.Vibrations"
-            android:exported="true" />  -->
-
         <!-- Performance Settings -->
+        <activity android:name=".performance.PowerWidget" />
+        <activity android:name=".performance.SystemSettings" />
         <activity android:name=".performance.PerformanceSettings" />
-        <activity android:name=".performance.VoltageControlSettings" />
 
         <receiver android:name=".performance.BootReceiver" android:enabled="true">
             <intent-filter>
@@ -1833,34 +1717,7 @@
             </intent-filter>
         </receiver>
 
-        <activity
-             android:name=".shortcuts.Shortcuts"
-             android:label="Lockscreen Shortcuts" >
-             <intent-filter>
-                 <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".performance.VoltageControlSettings" />
 
-                <category android:name="com.android.settings.SHORTCUT" />
-             </intent-filter>
-        </activity>
-
-        <activity android:name=".vanir.fragments.PrivacyGuardManager" />
-
-        <activity
-              android:name=".vanir.fragments.Pie"
-              android:label="Pie" >
-              <intent-filter>
-                  <action android:name="android.intent.action.MAIN" />
-                  <category android:name="com.intent.category.SHORTCUT" />
-              </intent-filter>
-          </activity>
-
-        <activity
-              android:name=".vanir.fragments.PieColor"
-              android:label="Pie Color" >
-              <intent-filter>
-                  <action android:name="android.intent.action.MAIN" />
-                  <category android:name="com.intent.category.SHORTCUT" />
-              </intent-filter>
-          </activity>
     </application>
 </manifest>

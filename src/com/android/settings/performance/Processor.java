@@ -26,7 +26,6 @@ import android.preference.PreferenceScreen;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
-import com.vanir.util.CMDProcessor;
 
 //
 // CPU Related Settings
@@ -226,9 +225,6 @@ public class Processor extends SettingsPreferenceFragment implements
             if (Utils.fileWriteOneLine(fname, (String) newValue)) {
                 if (preference == mGovernorPref) {
                     mGovernorPref.setSummary(String.format(mGovernorFormat, (String) newValue));
-                    if ("interactive".equals((String)newValue)) {
-                        new CMDProcessor().suOrSH().run("vanirinteractivegovernorgovernor");
-                    }
                 } else if (preference == mMinFrequencyPref) {
                     mMinFrequencyPref.setSummary(String.format(mMinFrequencyFormat,
                             toMHz((String) newValue)));

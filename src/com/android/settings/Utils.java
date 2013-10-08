@@ -119,6 +119,7 @@ public class Utils {
     // Device type reference
     private static int mDeviceType = -1;
 
+
     /**
      * Finds a matching activity for a preference's intent. If a matching
      * activity is not found, it will remove the preference.
@@ -192,6 +193,14 @@ public class Utils {
      *         removed.
      *
      * @see {@link #META_DATA_PREFERENCE_ICON}
+    private static final int DEVICE_PHONE = 0;
+    private static final int DEVICE_HYBRID = 1;
+    private static final int DEVICE_TABLET = 2;
+
+    // Device type reference
+    private static int mDeviceType = -1;
+
+    /*
      *      {@link #META_DATA_PREFERENCE_TITLE}
      *      {@link #META_DATA_PREFERENCE_SUMMARY}
      */

@@ -15,17 +15,19 @@
 -->
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent" >
+
 
     <LinearLayout style="@style/info_layout">
 
-    <!-- Update Button -->
-    <Button android:id="@+id/update"
-        android:textSize="14sp"
-        android:layout_marginTop="8dip"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/wifi_update" />
+        <!-- Update Button -->
+        <Button android:id="@+id/update"
+                android:textSize="14sp"
+                android:layout_marginTop="8dip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/wifi_update"
+                />
 
         <!--Wifi State-->
         <LinearLayout style="@style/entry_layout">
@@ -62,6 +64,7 @@
             <TextView android:text="@string/ssid_label" style="@style/info_label" />
             <TextView android:id="@+id/ssid" style="@style/info_value" />
         </LinearLayout>
+
 
         <!--Hidden SSID Value-->
         <LinearLayout style="@style/entry_layout">
@@ -100,11 +103,12 @@
 
         <!-- Ping stats -->
         <Button android:id="@+id/ping_test"
-            android:textSize="14sp"
-            android:layout_marginTop="8dip"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/ping_test_label" />
+                android:textSize="14sp"
+                android:layout_marginTop="8dip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ping_test_label"
+                />
 
         <LinearLayout style="@style/entry_layout">
             <TextView android:text="@string/radio_info_ping_ipaddr" style="@style/info_label" />
@@ -120,5 +124,6 @@
             <TextView android:text="@string/radio_info_http_client_test" style="@style/info_label" />
             <TextView android:id="@+id/httpClientTest" style="@style/info_value" />
         </LinearLayout>
+
     </LinearLayout>
 </ScrollView>

@@ -17,9 +17,9 @@
 <preference-headers
         xmlns:android="http://schemas.android.com/apk/res/android">
 
+
     <!-- WIRELESS and NETWORKS -->
-    <header
-        android:id="@+id/wireless_section"
+    <header android:id="@+id/wireless_section"
         android:title="@string/header_category_wireless_networks" />
 
     <!-- Wifi -->
@@ -57,49 +57,43 @@
         android:breadCrumbTitle="@string/wireless_networks_settings_title"
         android:fragment="com.android.settings.WirelessSettings"
         android:icon="@drawable/empty_icon" />
+        
+    <!-- Quick Links -->
+	<header android:title="@string/quick_links_title" />
 
-    <!-- =========== BEGIN Vanir =========== -->
-    <header android:title="@string/vanir_title" />
+	<!-- ROM Settings -->
+	<header 
+		android:icon="@drawable/ic_settings_rom_settings"
+        android:title="@string/rom_control_title">
+    <intent
+        android:action="android.intent.action.MAIN"
+        android:targetClass="com.aokp.romcontrol.ROMControlActivity"
+        android:targetPackage="com.aokp.romcontrol" />
+    </header>
+    
+    <!-- Launcher -->
     <header
-        android:id="@+id/vanir_settings"
-        android:icon="@drawable/ic_settings_aboutvanir"
-        android:fragment="com.android.settings.VanirSettings"
-        android:title="@string/vanir_settings_title" />
-    <!-- Theme chooser -->
-    <header
-        android:icon="@drawable/ic_settings_themes"
-        android:title="@string/themes_title">
-        <intent android:action="android.intent.action.MAIN"
+        android:id="@+id/launcher_settings"
+        android:title="@string/launcher_settings_title"
+        android:icon="@drawable/ic_settings_launcher" />
+
+	<!-- Theme chooser -->
+    <header android:icon="@drawable/ic_settings_themes"
+            android:title="@string/themes_title">
+        <intent
+                android:action="android.intent.action.MAIN"
                 android:targetPackage="com.tmobile.themechooser"
                 android:targetClass="com.tmobile.themechooser.ThemeChooser" />
     </header>
-    <!-- DeviceParts Device Specific settings -->
+    
+    <!-- TRDS -->
     <header
-        android:id="@+id/advanced_settings"
-        android:title="@string/advanced_settings_title"
-        android:icon="@drawable/ic_settings_advanced">
-        <intent
-            android:action="com.cyanogenmod.action.LAUNCH_DEVICE_SETTINGS"
-            android:targetPackage="com.cyanogenmod.settings.device"
-            android:targetClass="com.cyanogenmod.settings.device.DeviceSettings" />
-    </header>
-    <!-- Superuser -->
-    <header
-        android:id="@+id/superuser"
-        android:fragment="com.koushikdutta.superuser.PolicyNativeFragment"
-        android:icon="@drawable/ic_action_permission"
-        android:title="@string/superuser" />
-    <!-- Performance Settings -->
-    <header
-        android:id="@+id/performance_settings"
-        android:fragment="com.android.settings.performance.PerformanceSettings"
-        android:icon="@drawable/ic_settings_performance"
-        android:title="@string/performance_settings_title" />
-    <!-- =========== END Vanir =========== -->
+        android:id="@+id/trds_settings"
+        android:icon="@drawable/ic_xehd_trds"
+        android:title="@string/trds_settings_title" />
 
     <!-- DEVICE -->
-    <header
-        android:id="@+id/device_section"
+    <header android:id="@+id/device_section"
         android:title="@string/header_category_device" />
 
     <!-- Sound -->
@@ -151,10 +145,27 @@
         <intent android:action="com.android.settings.MANUFACTURER_APPLICATION_SETTING" />
     </header>
 
-    <!-- PERSONAL -->
+    <!-- DeviceParts Device Specific settings -->
     <header
-        android:id="@+id/personal_section"
+        android:id="@+id/advanced_settings"
+        android:title="@string/advanced_settings_title"
+        android:icon="@drawable/ic_settings_advanced">
+        <intent
+            android:action="com.cyanogenmod.action.LAUNCH_DEVICE_SETTINGS"
+            android:targetPackage="com.cyanogenmod.settings.device"
+            android:targetClass="com.cyanogenmod.settings.device.DeviceSettings" />
+    </header>
+
+    <!-- PERSONAL -->
+    <header android:id="@+id/personal_section"
         android:title="@string/header_category_personal" />
+
+    <!-- Profiles -->
+    <header
+        android:id="@+id/profiles_settings"
+        android:icon="@drawable/ic_settings_profiles"
+        android:fragment="com.android.settings.profiles.ProfilesSettings"
+        android:title="@string/profiles_settings_title" />
 
     <!-- Location -->
     <header
@@ -184,21 +195,21 @@
         android:title="@string/privacy_settings"
         android:id="@+id/privacy_settings" />
 
-    <!-- ACCOUNTS section -->
+    <!--  ACCOUNTS section -->
     <header
-        android:id="@+id/account_settings"
-        android:title="@string/account_settings" />
+            android:id="@+id/account_settings"
+            android:title="@string/account_settings" />
 
     <header
-        android:id="@+id/account_add"
-        android:title="@string/add_account_label"
-        android:icon="@drawable/ic_menu_add">
-        <intent android:action="android.settings.ADD_ACCOUNT_SETTINGS" />
+            android:id="@+id/account_add"
+            android:title="@string/add_account_label"
+            android:icon="@drawable/ic_menu_add">
+        <intent
+            android:action="android.settings.ADD_ACCOUNT_SETTINGS"/>
     </header>
 
     <!-- SYSTEM -->
-    <header
-        android:id="@+id/system_section"
+    <header android:id="@+id/system_section"
         android:title="@string/header_category_system" />
 
     <!-- Date & Time -->
@@ -221,6 +232,20 @@
         android:fragment="com.android.settings.DevelopmentSettings"
         android:icon="@drawable/ic_settings_development"
         android:title="@string/development_settings_title" />
+        
+     <!-- Superuser -->
+    <header
+        android:id="@+id/superuser"
+        android:fragment="com.koushikdutta.superuser.PolicyNativeFragment"
+        android:icon="@drawable/ic_action_permission"
+        android:title="@string/superuser" />   
+
+	<!-- Performance -->
+    <header
+        android:id="@+id/performance_settings"
+        android:fragment="com.android.settings.performance.PerformanceSettings"
+        android:icon="@drawable/ic_settings_performance"
+        android:title="@string/performance_settings_title" />
 
     <!-- About Device -->
     <header
@@ -228,4 +253,5 @@
         android:fragment="com.android.settings.DeviceInfoSettings"
         android:icon="@drawable/ic_settings_about"
         android:title="@string/about_settings" />
+
 </preference-headers>

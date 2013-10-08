@@ -15,8 +15,9 @@
 -->
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    android:key="shortcut_category"
-    android:title="@string/quick_launch_title">
-
+        android:key="shortcut_category"
+        android:title="@string/quick_launch_title">
+            
     <!-- Preferences will be filled here. -->
-</PreferenceScreen>
+
+</PreferenceScreen>   

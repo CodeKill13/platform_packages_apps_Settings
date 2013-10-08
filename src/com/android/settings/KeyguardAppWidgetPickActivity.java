@@ -48,7 +48,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -117,7 +116,7 @@ public class KeyguardAppWidgetPickActivity extends Activity
         }
         mAppWidgetManager = AppWidgetManager.getInstance(this);
         mAppWidgetLoader = new AppWidgetLoader<Item>(this, mAppWidgetManager, this);
-        mItems = mAppWidgetLoader.getItems(getIntent(), false);
+        mItems = mAppWidgetLoader.getItems(getIntent());
         mAppWidgetAdapter = new AppWidgetAdapter(this, mItems);
         mGridView.setAdapter(mAppWidgetAdapter);
         mGridView.setOnItemClickListener(this);

@@ -26,4 +26,5 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         style="?android:attr/tabWidgetStyle" />
+
 </HorizontalScrollView>

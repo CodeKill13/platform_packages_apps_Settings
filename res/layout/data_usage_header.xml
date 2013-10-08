@@ -59,4 +59,5 @@
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <include layout="@layout/data_usage_detail" />
+
 </LinearLayout>

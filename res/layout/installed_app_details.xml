@@ -47,12 +47,12 @@
             <!-- Force stop and uninstall buttons -->
             <include
                 layout="@layout/two_buttons_panel"
-                android:id="@+id/control_buttons_panel" />
+                android:id="@+id/control_buttons_panel"/>
 
             <!-- Force stop and uninstall buttons -->
             <include
                 layout="@layout/two_buttons_panel"
-                android:id="@+id/more_control_buttons_panel" />
+                android:id="@+id/more_control_buttons_panel"/>
 
             <!-- Ban notifications for this package -->
             <CheckBox android:id="@+id/notification_switch"
@@ -61,21 +61,6 @@
                 android:layout_gravity="start"
                 android:layout_marginTop="4dip"
                 android:text="@string/app_notifications_switch_label" />
-
-            <!-- HALO notification state for this package -->
-            <CheckBox android:id="@+id/halo_state"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:layout_marginTop="4dip" />
-
-            <!-- Enable Privacy Guard for an application -->
-            <CheckBox android:id="@+id/privacy_guard_switch"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:layout_marginTop="4dip"
-                android:text="@string/privacy_guard_switch_label" />
 
         </LinearLayout>
 
@@ -96,7 +81,6 @@
                 android:orientation="horizontal"
                 android:baselineAligned="true"
                 android:paddingTop="-1dip">
-
                 <TextView
                     android:id="@+id/total_size_prefix"
                     android:text="@string/total_size_label"
@@ -117,7 +101,6 @@
                     android:layout_marginBottom="4dip"
                     android:scaleType="center"
                     android:contentDescription="@null" />
-
                 <TextView
                     android:id="@+id/total_size_text"
                     android:paddingTop="6dip"
@@ -133,7 +116,6 @@
                 android:orientation="horizontal"
                 android:baselineAligned="true"
                 android:paddingTop="-1dip">
-
                 <TextView
                     android:id="@+id/application_size_prefix"
                     android:text="@string/application_size_label"
@@ -154,7 +136,6 @@
                     android:layout_marginBottom="4dip"
                     android:scaleType="center"
                     android:contentDescription="@null" />
-
                 <TextView
                     android:id="@+id/application_size_text"
                     android:textAppearance="?android:attr/textAppearanceMedium"
@@ -170,7 +151,6 @@
                 android:orientation="horizontal"
                 android:baselineAligned="true"
                 android:paddingTop="-1dip">
-
                 <TextView
                     android:id="@+id/external_code_size_prefix"
                     android:text="@string/external_code_size_label"
@@ -191,7 +171,6 @@
                     android:layout_marginBottom="4dip"
                     android:scaleType="center"
                     android:contentDescription="@null" />
-
                 <TextView
                     android:id="@+id/external_code_size_text"
                     android:textAppearance="?android:attr/textAppearanceMedium"
@@ -208,7 +187,6 @@
                 android:orientation="horizontal"
                 android:baselineAligned="true"
                 android:paddingTop="-1dip">
-
                 <TextView
                     android:id="@+id/data_size_prefix"
                     android:text="@string/data_size_label"
@@ -229,7 +207,6 @@
                     android:layout_marginBottom="4dip"
                     android:scaleType="center"
                     android:contentDescription="@null" />
-
                 <TextView
                     android:id="@+id/data_size_text"
                     android:textAppearance="?android:attr/textAppearanceMedium"
@@ -245,7 +222,6 @@
                 android:orientation="horizontal"
                 android:baselineAligned="true"
                 android:paddingTop="-1dip">
-
                 <TextView
                     android:id="@+id/external_data_size_prefix"
                     android:text="@string/external_data_size_label"
@@ -266,7 +242,6 @@
                     android:layout_marginBottom="4dip"
                     android:scaleType="center"
                     android:contentDescription="@null" />
-
                 <TextView
                     android:id="@+id/external_data_size_text"
                     android:textAppearance="?android:attr/textAppearanceMedium"
@@ -276,24 +251,23 @@
                     android:maxLines="1" />
             </LinearLayout>
 
-            <!-- Clear data and install location buttons -->
+            <!-- Clear data and install location buttons  -->
             <include
                 layout="@layout/two_buttons_panel"
                 android:id="@+id/data_buttons_panel"/>
+
         </LinearLayout>
 
         <!-- Clear cache section -->
         <RelativeLayout
             android:id="@+id/cache_panel"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
+            android:layout_height="wrap_content" >
             <TextView
                 android:id="@+id/cache_header"
                 style="?android:attr/listSeparatorTextViewStyle"
                 android:layout_marginTop="8dip"
                 android:text="@string/cache_header_label" />
-
             <LinearLayout
                 android:id="@+id/cache_size"
                 android:layout_width="match_parent"
@@ -304,7 +278,6 @@
                 android:paddingStart="?android:attr/listPreferredItemPaddingStart"
                 android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
                 android:paddingTop="-1dip">
-
                 <TextView
                     android:text="@string/cache_size_label"
                     android:layout_height="wrap_content"
@@ -324,7 +297,6 @@
                     android:layout_marginBottom="4dip"
                     android:scaleType="center"
                     android:contentDescription="@null" />
-
                 <TextView
                     android:id="@+id/cache_size_text"
                     android:textAppearance="?android:attr/textAppearanceMedium"
@@ -367,7 +339,7 @@
             android:layout_marginTop="8dip"
             android:text="@string/auto_launch_label" />
 
-        <RelativeLayout
+        <RelativeLayout 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -409,7 +381,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-
             <TextView
                 style="?android:attr/listSeparatorTextViewStyle"
                 android:layout_marginTop="8dip"
@@ -422,15 +393,13 @@
                 android:paddingTop="6dip"
                 android:paddingStart="?android:attr/listPreferredItemPaddingStart"
                 android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
-                android:text="@string/screen_compatibility_text" />
-
+                android:text="@string/screen_compatibility_text"/>
             <CheckBox android:id="@+id/ask_compatibility_cb"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dip"
                 android:layout_gravity="start"
                 android:text="@string/ask_compatibility" />
-
             <CheckBox android:id="@+id/enable_compatibility_cb"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -445,12 +414,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-
             <TextView
                 style="?android:attr/listSeparatorTextViewStyle"
                 android:layout_marginTop="8dip"
                 android:text="@string/permissions_label" />
-
             <TextView android:id="@+id/security_settings_billing_desc"
                 android:text="@string/security_settings_billing_desc"
                 android:textColor="#ffffb060"
@@ -461,25 +428,21 @@
                 android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
-
             <LinearLayout
                 android:id="@+id/security_settings_billing_list"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/security_settings_premium_sms_desc" />
-
                 <Spinner
                     android:id="@+id/security_settings_premium_sms_list"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:spinnerMode="dropdown" />
             </LinearLayout>
-
             <TextView android:id="@+id/security_settings_desc"
                 android:text="@string/security_settings_desc"
                 android:textAppearance="?android:attr/textAppearanceSmall"
@@ -489,12 +452,12 @@
                 android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
-
             <LinearLayout
                 android:id="@+id/security_settings_list"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical" />
+                android:orientation="vertical"/>
         </LinearLayout>
     </LinearLayout>
 </ScrollView>
+

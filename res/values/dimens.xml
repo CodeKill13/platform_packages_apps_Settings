@@ -32,7 +32,6 @@
     <dimen name="data_usage_chart_height">252dip</dimen>
     <dimen name="data_usage_chart_optimalWidth">440dip</dimen>
 
-    <dimen name="shortcut_picker_left_padding">70dip</dimen>
     <dimen name="volume_seekbar_side_margin">8dip</dimen>
 
     <dimen name="crypt_clock_size">100sp</dimen>
@@ -48,7 +47,7 @@
     <dimen name="divider_margin_top">6dip</dimen>
     <dimen name="divider_margin_bottom">7dip</dimen>
 
-    <!-- Size of icons in the top-level of settings -->
+    <!--  Size of icons in the top-level of settings  -->
     <dimen name="header_icon_width">28dp</dimen>
     <dimen name="appwidget_min_width">260dip</dimen>
     <dimen name="appwidget_min_height">40dip</dimen>
@@ -62,39 +61,22 @@
     <dimen name="keyguard_appwidget_picker_margin_left">6dip</dimen>
     <dimen name="keyguard_appwidget_picker_margin_right">6dip</dimen>
     <integer name="keyguard_appwidget_picker_cols">1</integer>
-    
+
     <dimen name="circle_avatar_size">48dp</dimen>
     <dimen name="circle_avatar_frame_stroke_width">1dp</dimen>
     <dimen name="circle_avatar_frame_shadow_radius">3dp</dimen>
 
     <!-- Minimum width for the popup for updating a user's photo. -->
     <dimen name="update_user_photo_popup_min_width">300dip</dimen>
+    <!-- **** CYANOGENMOD ADDITIONS START **** -->
+
+    <!-- Light settings dialog -->
+    <dimen name="dialog_light_settings_width">400dip</dimen>
 
     <!-- height of a normal list item in edit playlist mode -->
     <dimen name="normal_height">64dip</dimen>
     <!-- height of an expanded list item in edit playlist mode -->
     <dimen name="expanded_height">128dip</dimen>
 
-    <!-- Navbar Settings -->
-    <dimen name="navigation_bar_52">52.0dip</dimen>
-    <dimen name="navigation_bar_50">50.0dip</dimen>
-    <dimen name="navigation_bar_48">48.0dip</dimen>
-    <dimen name="navigation_bar_46">46.0dip</dimen>
-    <dimen name="navigation_bar_44">44.0dip</dimen>
-    <dimen name="navigation_bar_42">42.0dip</dimen>
-    <dimen name="navigation_bar_40">40.0dip</dimen>
-    <dimen name="navigation_bar_38">38.0dip</dimen>
-    <dimen name="navigation_bar_36">36.0dip</dimen>
-    <dimen name="navigation_bar_30">30.0dip</dimen>
-    <dimen name="navigation_bar_24">24.0dip</dimen>
-
-    <!-- Light settings dialog -->
-    <dimen name="dialog_light_settings_width">400dip</dimen>
-
-    <!-- Autobrightnes settings dialog -->
-    <dimen name="auto_brightness_preview_text_size">8dip</dimen>
-    <dimen name="auto_brightness_preview_stroke_width">1dip</dimen>
-    <dimen name="auto_brightness_preview_marker_size">3dip</dimen>
-    <dimen name="auto_brightness_preview_grid_margin">3dip</dimen>
-    <dimen name="auto_brightness_dialog_more_button_size">48dp</dimen>
+    <!-- **** CYANOGENMOD ADDITIONS END **** -->
 </resources>

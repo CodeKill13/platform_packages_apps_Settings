@@ -45,8 +45,7 @@ public class AirplaneModeEnabler implements Preference.OnPreferenceChangeListene
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case EVENT_SERVICE_STATE_CHANGED:
-                    mCheckBoxPref.setEnabled(true);
-					onAirplaneModeChanged();
+                    onAirplaneModeChanged();
                     break;
             }
         }
@@ -125,8 +124,7 @@ public class AirplaneModeEnabler implements Preference.OnPreferenceChangeListene
                     SystemProperties.get(TelephonyProperties.PROPERTY_INECM_MODE))) {
             // In ECM mode, do not update database at this point
         } else {
-            mCheckBoxPref.setEnabled(false);
-			setAirplaneModeOn((Boolean) newValue);
+            setAirplaneModeOn((Boolean) newValue);
         }
         return true;
     }

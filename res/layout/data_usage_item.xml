@@ -19,4 +19,5 @@
     android:layout_height="wrap_content">
 
     <include layout="@layout/app_percentage_item" />
+
 </FrameLayout>

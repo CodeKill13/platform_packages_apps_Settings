@@ -25,4 +25,6 @@
         android:key="bt_device_list"
         android:title="@string/bluetooth_preference_found_devices"
         android:orderingFromXml="false" />
+
 </PreferenceScreen>
+

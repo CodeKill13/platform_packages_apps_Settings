@@ -14,87 +14,185 @@
      limitations under the License.
 -->
 
-<PreferenceScreen
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="@string/display_settings"
-    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+        android:title="@string/display_settings"
+        xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
-    <com.android.settings.BrightnessPreference
-        android:key="brightness"
-        android:title="@string/brightness"
-        android:summary="@string/custom_brightness_summary"
-        android:dialogTitle="@string/brightness" />
+        <com.android.settings.BrightnessPreference
+                android:title="@string/brightness"
+                android:persistent="false"/>
 
-    <CheckBoxPreference
-        android:key="statusbar_brightness_slider"
-        android:title="@string/brightness_slider_title"
-        android:summary="@string/brightness_slider_summary"
-        android:defaultValue="false" />
+        <PreferenceScreen
+                android:key="wallpaper"
+                android:title="@string/wallpaper_settings_title"
+                android:fragment="com.android.settings.WallpaperTypeSettings" />
 
-    <CheckBoxPreference
-        android:key="adaptive_backlight"
-        android:title="@string/adaptive_backlight_title"
-        android:summary="@string/adaptive_backlight_summary"
-        android:defaultValue="true" />
-
-    <PreferenceScreen
-        android:key="display_rotation"
-        android:fragment="com.android.settings.vanir.DisplayRotation"
-        android:title="@string/display_rotation_title" />
-
-    <PreferenceScreen
-        android:key="wallpaper"
-        android:title="@string/wallpaper_settings_title"
-        android:fragment="com.android.settings.WallpaperTypeSettings" />
-
-    <!-- Active display -->
+        <!-- Active display -->
     <PreferenceScreen
         android:key="active_display"
-        android:fragment="com.android.settings.vanir.ActiveDisplaySettings"
+        android:fragment="com.android.settings.chameleonos.ActiveDisplaySettings"
         android:title="@string/ad_settings_title"
         android:summary="@string/ad_settings_summary">
     </PreferenceScreen>
 
-    <ListPreference
-        android:key="screen_timeout"
-        android:title="@string/screen_timeout"
-        android:summary="@string/screen_timeout_summary"
-        android:persistent="false"
-        android:entries="@array/screen_timeout_entries"
-        android:entryValues="@array/screen_timeout_values" />
+        <CheckBoxPreference
+            android:key="accelerometer"
+            android:title="@string/accelerometer_title"/>
 
-    <PreferenceScreen
-        android:key="screensaver"
-        android:title="@string/screensaver_settings_title"
-        android:fragment="com.android.settings.DreamSettings" />
+        <ListPreference
+                android:key="screen_timeout"
+                android:title="@string/screen_timeout"
+                android:summary="@string/screen_timeout_summary"
+                android:persistent="false"
+                android:entries="@array/screen_timeout_entries"
+                android:entryValues="@array/screen_timeout_values" />
 
-    <CheckBoxPreference
-         android:key="listview_animation"
-         android:title="@string/listview_animation_title"
-         android:summary="@string/listview_animation_summary"
-         android:defaultValue="true" />
+        <PreferenceScreen
+                android:key="screensaver"
+                android:title="@string/screensaver_settings_title"
+                android:fragment="com.android.settings.DreamSettings" />
 
-    <com.android.settings.WarnedListPreference
-        android:key="font_size"
-        android:title="@string/title_font_size"
-        android:summary="@string/summary_font_size"
-        android:entries="@array/entries_font_size"
-        android:entryValues="@array/entryvalues_font_size"
-        android:dialogTitle="@string/dialog_title_font_size" />
+        <com.android.settings.WarnedListPreference
+                android:key="font_size"
+                android:title="@string/title_font_size"
+                android:summary="@string/summary_font_size"
+                android:entries="@array/entries_font_size"
+                android:entryValues="@array/entryvalues_font_size"
+                android:dialogTitle="@string/dialog_title_font_size" />
 
-    <PreferenceScreen
-        android:key="notification_pulse"
-        android:title="@string/notification_pulse_title"
-        android:fragment="com.android.settings.notificationlight.NotificationLightSettings" />
+        <CheckBoxPreference
+            android:key="notification_pulse"
+            android:title="@string/notification_pulse_title"
+            android:persistent="false" />
 
-    <PreferenceScreen
-        android:key="battery_light"
-        android:title="@string/battery_light_title"
-        android:fragment="com.android.settings.notificationlight.BatteryLightSettings" />
+		<PreferenceCategory android:title="@string/xenonhd_extras_title" />
 
-    <PreferenceScreen
-        android:key="wifi_display"
-        android:title="@string/wifi_display_settings_title"
-        android:fragment="com.android.settings.wfd.WifiDisplaySettings" />
+		<!-- Chronus -->
+    	<PreferenceScreen
+        	android:key="lock_clock"
+        	android:title="@string/lock_clock_title"
+        	android:summary="@string/lock_clock_summary">
+        <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="com.cyanogenmod.lockclock"
+                android:targetClass="com.cyanogenmod.lockclock.preference.Preferences" />
+    	</PreferenceScreen>
+    	
+    	<PreferenceCategory
+        android:key="halo_options"
+        android:title="@string/halo_options_title">
+
+	<CheckBoxPreference
+	    android:key="halo_enabled"
+	    android:title="@string/halo_enabled_title"
+	    android:summary="@string/halo_enabled_summary" />
+
+        <ListPreference
+            android:key="halo_state"
+            android:dialogTitle="@string/halo_state_title"
+            android:title="@string/halo_state_title"
+            android:summary="@string/halo_state_summary"
+	    android:dependency="halo_enabled"
+            android:entries="@array/entries_halo_state"
+            android:entryValues="@array/values_halo_state" />
+
+        <CheckBoxPreference
+            android:key="halo_hide"
+            android:title="@string/halo_hide_title"
+            android:summary="@string/halo_hide_summary"
+	    android:dependency="halo_enabled"
+            android:defaultValue="false" />
+
+         <CheckBoxPreference
+            android:key="halo_ninja"
+            android:title="@string/halo_ninja_title"
+            android:summary="@string/halo_ninja_summary"
+            android:defaultValue="false" />
+
+        <ListPreference
+            android:key="halo_notify_count"
+            android:dialogTitle="@string/halo_notification_count_title"
+            android:title="@string/halo_notification_count_title"
+            android:summary="@string/halo_notification_count_summary"
+            android:entries="@array/entries_halo_notification_count"
+            android:entryValues="@array/values_halo_notification_count" />
+
+        <CheckBoxPreference
+            android:key="halo_msgbox"
+            android:title="@string/halo_notification_msgbox_title"
+            android:summary="@string/halo_notification_msgbox_summary"
+            android:defaultValue="true" />
+
+        <ListPreference  
+            android:key="halo_msgbox_animation"
+            android:dialogTitle="@string/halo_msgbox_animation_title"
+            android:title="@string/halo_msgbox_animation_title"
+            android:summary="@string/halo_msgbox_animation_summary" 
+	    android:entries="@array/entries_halo_msgbox_animation"
+	    android:entryValues="@array/values_halo_msgbox_animation" />
+
+        <CheckBoxPreference
+            android:key="halo_reversed"
+            android:title="@string/halo_reversed_title"
+            android:summary="@string/halo_reversed_summary"
+	    android:dependency="halo_enabled"
+            android:defaultValue="true" />
+            
+        <CheckBoxPreference
+            android:key="halo_pause"
+            android:title="@string/halo_pause_title"
+            android:dependency="halo_enabled"
+            android:summary="@string/halo_pause_summary" />
+            android:entries="@array/entries_halo_msgbox_animation"
+            android:entryValues="@array/values_halo_msgbox_animation" />
+
+
+        <CheckBoxPreference
+            android:key="halo_colors"
+            android:title="@string/halo_colors_title"
+            android:summary="@string/halo_colors_summary"
+            android:dependency="halo_enabled"
+            android:defaultValue="false" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="halo_circle_color"
+            android:title="@string/halo_circle_color_title"
+            android:dependency="halo_colors"
+            android:defaultValue="0xFF33B5E5"
+            alphaSlider="true" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="halo_effect_color"
+            android:title="@string/halo_effect_color_title"
+            android:summary="@string/halo_effect_color_summary"
+            android:dependency="halo_colors"
+            android:defaultValue="0xFF33B5E5"
+            alphaSlider="true" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="halo_bubble_color"
+            android:title="@string/halo_bubble_color_title"
+            android:dependency="halo_colors"
+            android:defaultValue="0xFF33B5E5"
+            alphaSlider="true" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="halo_bubble_text_color"
+            android:title="@string/halo_bubble_text_color_title"
+            android:dependency="halo_colors"
+            android:defaultValue="0xFFFFFFFF" />
+
+        <CheckBoxPreference
+            android:key="halo_unlock_ping"
+            android:title="@string/halo_unlock_ping_title"
+            android:summary="@string/halo_unlock_ping_summary"
+            android:defaultValue="false" />
+
+
+    </PreferenceCategory>
+
+        <PreferenceScreen
+                android:key="wifi_display"
+                android:title="@string/wifi_display_settings_title"
+                android:fragment="com.android.settings.wfd.WifiDisplaySettings" />
 
 </PreferenceScreen>

@@ -23,4 +23,5 @@
     android:textSize="20sp"
     android:gravity="center_vertical"
     android:paddingStart="16dip"
-    android:minHeight="48dip" />
+    android:minHeight="48dip"
+/>

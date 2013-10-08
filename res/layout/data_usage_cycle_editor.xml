@@ -36,4 +36,5 @@
         android:layout_marginEnd="16dip"
         android:focusable="true"
         android:focusableInTouchMode="true" />
+
 </LinearLayout>

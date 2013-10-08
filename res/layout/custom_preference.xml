@@ -53,6 +53,7 @@
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="?android:attr/textColorSecondary"
             android:maxLines="4" />
+
     </RelativeLayout>
 
     <!-- Preference should place its actual preference widget here. -->
@@ -61,4 +62,5 @@
         android:layout_height="match_parent"
         android:gravity="center_vertical"
         android:orientation="vertical" />
+
 </LinearLayout>

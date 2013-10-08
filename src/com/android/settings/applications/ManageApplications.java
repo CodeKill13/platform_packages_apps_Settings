@@ -22,7 +22,6 @@ import static android.net.NetworkPolicyManager.POLICY_REJECT_METERED_BACKGROUND;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.AlertDialog;
-import android.app.AppOpsManager;
 import android.app.Fragment;
 import android.app.INotificationManager;
 import android.content.ComponentName;
@@ -173,6 +172,7 @@ public class ManageApplications extends Fragment implements
     private int mSortOrder = SORT_ORDER_ALPHA;
     
     private ApplicationsState mApplicationsState;
+    private PackageInfo mPackageInfo;
 
     public static class TabInfo implements OnItemClickListener {
         public final ManageApplications mOwner;
@@ -260,7 +260,6 @@ public class ManageApplications extends Fragment implements
                 lv.setSaveEnabled(true);
                 lv.setItemsCanFocus(true);
                 lv.setTextFilterEnabled(true);
-                lv.setFastScrollEnabled(true);
                 mListView = lv;
                 mApplications = new ApplicationsAdapter(mApplicationsState, this, mFilter);
                 mListView.setAdapter(mApplications);
@@ -318,12 +317,6 @@ public class ManageApplications extends Fragment implements
             }
             if (mRunningProcessesView != null) {
                 mRunningProcessesView.doPause();
-            }
-        }
-
-        public void release() {
-            if (mApplications != null) {
-                mApplications.release();
             }
         }
 
@@ -596,10 +589,6 @@ public class ManageApplications extends Fragment implements
                 mResumed = false;
                 mSession.pause();
             }
-        }
-
-        public void release() {
-            mSession.release();
         }
 
         public void rebuild(int sort) {
@@ -999,7 +988,6 @@ public class ManageApplications extends Fragment implements
         // are no longer attached to their view hierarchy.
         for (int i=0; i<mTabs.size(); i++) {
             mTabs.get(i).detachView();
-            mTabs.get(i).release();
         }
     }
 
@@ -1095,7 +1083,6 @@ public class ManageApplications extends Fragment implements
             mOptionsMenu.findItem(SHOW_RUNNING_SERVICES).setVisible(showingBackground);
             mOptionsMenu.findItem(SHOW_BACKGROUND_PROCESSES).setVisible(!showingBackground);
             mOptionsMenu.findItem(RESET_APP_PREFERENCES).setVisible(false);
-            mShowBackground = showingBackground;
         } else {
             mOptionsMenu.findItem(SORT_ORDER_ALPHA).setVisible(mSortOrder != SORT_ORDER_ALPHA);
             mOptionsMenu.findItem(SORT_ORDER_SIZE).setVisible(mSortOrder != SORT_ORDER_SIZE);
@@ -1130,12 +1117,10 @@ public class ManageApplications extends Fragment implements
         if (mResetDialog == dialog) {
             final PackageManager pm = getActivity().getPackageManager();
             final IPackageManager mIPm = IPackageManager.Stub.asInterface(
-                    ServiceManager.getService("package"));
+                            ServiceManager.getService("package"));
             final INotificationManager nm = INotificationManager.Stub.asInterface(
                     ServiceManager.getService(Context.NOTIFICATION_SERVICE));
             final NetworkPolicyManager npm = NetworkPolicyManager.from(getActivity());
-            final AppOpsManager aom = (AppOpsManager)getActivity().getSystemService(
-                    Context.APP_OPS_SERVICE);
             final Handler handler = new Handler(getActivity().getMainLooper());
             (new AsyncTask<Void, Void, Void>() {
                 @Override protected Void doInBackground(Void... params) {
@@ -1145,7 +1130,7 @@ public class ManageApplications extends Fragment implements
                         ApplicationInfo app = apps.get(i);
                         try {
                             if (DEBUG) Log.v(TAG, "Enabling notifications: " + app.packageName);
-                            nm.setNotificationsEnabledForPackage(app.packageName, app.uid, true);
+                            nm.setNotificationsEnabledForPackage(app.packageName, app.uid,true);
                         } catch (android.os.RemoteException ex) {
                         }
                         if (!app.enabled) {
@@ -1162,7 +1147,6 @@ public class ManageApplications extends Fragment implements
                         mIPm.resetPreferredActivities(UserHandle.myUserId());
                     } catch (RemoteException e) {
                     }
-                    aom.resetAllModes();
                     final int[] restrictedUids = npm.getUidsWithPolicy(
                             POLICY_REJECT_METERED_BACKGROUND);
                     final int currentUserId = ActivityManager.getCurrentUser();

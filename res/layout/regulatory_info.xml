@@ -23,3 +23,4 @@
         android:scaleType="centerCrop"
         android:src="@drawable/regulatory_info" />
 </ScrollView>
+

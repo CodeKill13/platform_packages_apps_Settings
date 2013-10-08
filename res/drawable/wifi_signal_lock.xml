@@ -20,3 +20,4 @@
     <item android:maxLevel="2" android:drawable="@drawable/ic_wifi_lock_signal_3" />
     <item android:maxLevel="3" android:drawable="@drawable/ic_wifi_lock_signal_4" />
 </level-list>
+

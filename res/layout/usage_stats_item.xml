@@ -47,3 +47,4 @@
         android:paddingStart="12dip"
         android:maxLines="1" />
 </LinearLayout>
+

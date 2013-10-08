@@ -59,4 +59,5 @@
         android:ellipsize="marquee"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textAlignment="viewStart" />
+
 </GridLayout>
