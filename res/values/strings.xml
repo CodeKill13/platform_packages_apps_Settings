@@ -1921,9 +1921,6 @@
     <string name="device_info_settings" product="default">Phone status</string>
 
     <!-- About phone screen, list item title.  Takes the user to the screen for seeing and installing system updates. -->
-    <string name="system_update_settings_list_item_title">XenonHD updates</string>
-    <!-- About phone screen, list item summary.  Takes the user to the screen for seeing and installing system updates. -->
-    <string name="system_update_settings_list_item_summary">""</string>
 
 	<!--  About device screen, Hardware info -->
     <string name="hardware_info">Hardware info</string>
@@ -1972,7 +1969,7 @@
     <!-- About phone screen,  setting option name-->
     <string name="selinux_status">SELinux status</string>
     <!-- About phone screen,  setting option name-->
-    <string name="xehd_version">XeHD version</string>
+    <string name="xehd_version">Insomnia version</string>
 	<string name="xehd_version_default">Unknown</string>
 
     <!-- About phone screen, show when a value of some status item is unavailable. -->
@@ -2671,7 +2668,6 @@
         <li>Disabled app notifications</li>\n
         <li>Default applications for actions</li>\n
         <li>Background data restrictions for apps</li>\n\n
-        <li>Any permission restrictions</li>\n\n
         You will not lose any app data.</string>
     <!-- [CHAR LIMIT=25] Manage applications screen, menu item.  Confirmation button of dialog to confirm resetting user's app preferences. -->
     <string name="reset_app_preferences_button">Reset apps</string>
@@ -4642,7 +4638,7 @@
     <string name="quick_links_title">Quick Links</string>
     
     <!-- Rom Settings -->
-    <string name="rom_control_title">ROM Settings</string>
+    <string name="rom_control_title">Insomnia Settings</string>
 
     <string name="vibration_title">Phone vibration</string>
     
@@ -4652,7 +4648,7 @@
     <!-- Advanced, Device specific (DeviceParts) settings  -->
     <string name="advanced_settings_title">Advanced</string>
 
-	<string name="xenonhd_extras_title">Extras</string>
+
 
 	 <!-- Theme chooser -->
     <string name="themes_title">Themes</string>
@@ -4865,7 +4861,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="advanced_settings_title">Advanced</string>
     
     <!-- TRDS Settings -->
-    <string name="trds_settings_title">Dark XenonHD</string>
+    <string name="trds_settings_title">Light to Dark</string>
     
     <!-- Permissions Management -->
     <string name="permissions_settings_title">Permissions Management</string>
